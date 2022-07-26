@@ -1,15 +1,20 @@
-const removeFromArray = function([array], filter) {
+const removeFromArray = function(array, filter) {
 
-    for (let i=0; i < array.length; i++) {
-        if (arguments[i] === filter) {
-            array.splice(i, 1)
-            return array
-        } else {
-            return array
-        }
+console.log(array)
+console.log(filter)
+
+let i = 0;
+
+while (i < array.length) {
+
+    if (array[i] === filter) {
+        let splicedArray = array.splice(i,1)
+        return array
     }
+    i++
+}
+}
 
-};
 
 // Do not edit below this line
 module.exports = removeFromArray;
