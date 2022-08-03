@@ -1,29 +1,34 @@
-const findTheOldest = function(people) {
+const findTheOldest = function (people) {
 
 
-//Make a new array of everyones ages
-// find the index of the largest age
-// return the index of the original array to find whos the oldest. 
+    //Make a new array of everyones ages
+    // find the index of the largest age
+    // return the index of the original array to find whos the oldest. 
+    const today = new Date()
+    const year = today.getFullYear()
 
-let ageArray = []
 
-for (let i=0; i < people.length; i++) {
+    const newPeople = people.map(person => {
+        if (person.yearOfDeath == null) {
+            return { ...person, yearOfDeath: year }
+        } else {
+            return person
+        }
+    })
 
-    ageArray.push(people[i].yearOfDeath - people[i].yearOfBirth)
 
-}
+    let ageArray = []
+    for (let i = 0; i < newPeople.length; i++) {
+        ageArray.push(newPeople[i].yearOfDeath - newPeople[i].yearOfBirth)
+    }
 
-console.log(ageArray)
-let oldestAge = Math.max(...ageArray)
 
-console.log(oldestAge)
-let index = ageArray.indexOf(oldestAge)
+    let oldestAge = Math.max(...ageArray)
+    let index = ageArray.indexOf(oldestAge)
+    let oldestPerson = people[index]
 
-      console.log(index)
 
-let oldestPerson = people[index]
- 
-return oldestPerson
+    return oldestPerson
 };
 
 // Do not edit below this line
