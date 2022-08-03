@@ -28,7 +28,8 @@ const caesar = function(string, number) {
 
     }
 
-    return `${encryptedArray}`
+
+    return `${encryptedArray.join('')}`
     //take a string
     //divide string into characters
     //replace characters with new ones accordng to your formula
